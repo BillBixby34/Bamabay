@@ -1,0 +1,23 @@
+{
+  "name": "bamabay",
+  "version": "1.0.0",
+  "description": "Going to be a competitor on the online sales-front",
+  "main": "conn.js",
+  "dependencies": {
+    "mysql": "^2.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillBixby34/Bamabay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BillBixby34/Bamabay/issues"
+  },
+  "homepage": "https://github.com/BillBixby34/Bamabay#readme"
+}
