@@ -4,6 +4,7 @@
   "description": "Going to be a competitor on the online sales-front",
   "main": "conn.js",
   "dependencies": {
+    "inquirer": "^3.2.1",
     "mysql": "^2.14.1"
   },
   "devDependencies": {},
