@@ -10,6 +10,14 @@ __Bamazon__ is an opportunity for the _truly_ adventurous among investors.  We a
 
 As we are still in alpha, many changes have yet to occur.  For now, we will use node at the command line to interact with our __Bamazon__ marketplace!
 
-![we begin with '<node bamazonCustomer.js>' command](/images/Bamazon1.PNG)
+1. ![We call our marketplace with Node.js](/images/Bamazon1.PNG)
+
+2. ![Here the marketplace products are displayed with prices, inventory, and department information. The user may choose their item](/images/Bamazon2.PNG)
+
+3. ![The user has chosen to purchase more gyroscopes than we have available](/images/Bamazon3F.PNG)
+
+4. ![The stock amount on hand is displayed at the top, while the amount requested underneath. A message prompts the user to refine their decision](/images/Bamazon3F1.PNG)
+
+5. ![The buyer has chosen to purchase 2 gyroscopes. The updated stock availability is reflected in the table and the buyer is asked to make another purchase with the updated stock information available!](/images/Bamazon3T.PNG)
 
 
