@@ -12,9 +12,9 @@ CREATE TABLE products (
   -- Makes a string column called "name" which cannot contain null --
   product_name varchar(100) not null,
  
- price integer(10) not null,
+ price decimal(10,2) not null,
 
-stock_quantity integer(20),
+stock_quantity integer(20) null,
  -- stock_avail BOOLEAN DEFAULT true, ---
  department_name varchar(100) not null,
   PRIMARY KEY (id)
