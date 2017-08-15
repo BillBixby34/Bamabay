@@ -10,6 +10,6 @@ __Bamazon__ is an opportunity for the _truly_ adventurous among investors.  We a
 
 As we are still in alpha, many changes have yet to occur.  For now, we will use node at the command line to interact with our __Bamazon__ marketplace!
 
-1. ![we begin with '<node bamazonCustomer.js>' command](/Bamazon1.png)
+![we begin with '<node bamazonCustomer.js>' command](/images/Bamazon1.PNG)
 
 
