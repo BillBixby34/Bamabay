@@ -14,12 +14,13 @@ connection.connect(function(err){
 	if(err) throw err;//return console.log(err);
 	console.log("Connected as id " + connection.threadId)
 //need connection to be inside callback function!
-displayTable();//display all of the items available for sale.
+displayTable();
+start();//display all of the items available for sale.
 //connection.end();
 }); 
 //1st ask them the ID of the product they would like to buy
 function start() {
-	connection.query("SELECT * FROM products", function(err, results) {
+	connection.query("SELECT * FROM products", function(err, res) {
     if (err) throw err;
 	inquirer.prompt([
 	{
@@ -42,20 +43,27 @@ function start() {
 	}
 	
 	]).then(function(answer){
+		//console.log(answer);//check promise
+		//console.log(dataResult[1]);
 		var chosenItem;//info for chosen item
-		for (var i = 0; i < res.length; i++) {
-			if (res[i].product_name === answer.choice){
-				chosenItem = res[i];
+		for (var i = 0; i < dataResult.length; i++) {
+			if (dataResult[i].product_name === answer.choiceID){
+				chosenItem = dataResult[i];
+				console.log("==================");
+				//console.log(chosenItem); //shows rowDataPacket
+				console.log("------------------");
 			}
 		}
+		console.log(chosenItem.stock_quantity);
+		console.log("------------------");
+		console.log(answer.stock_purchase);
 		if (chosenItem.stock_quantity > parseInt(answer.stock_purchase)) {
-			chosenItem.stock_quantity - answer.stock_purchase = answer.stock_purchase;
 			//update value of stock_quantity
 			connection.query(
 				"UPDATE products SET ? WHERE ?",
 				[
 				{ 
-				 stock_quantity: answer.stock_purchase	
+				 stock_quantity: (chosenItem.stock_quantity - answer.stock_purchase)	
 				},
 				{
 					id: chosenItem.id
@@ -64,12 +72,14 @@ function start() {
 					function(error) {
 						if (error) throw err;
 						console.log("Thank you for shopping with us!");
+						displayTable();
 						start();
 					}
 				)
 		}
 		else {
 			console.log("We do not have sufficient stock. Please try again");
+			displayTable();
 			start();
 		}
 	});
@@ -82,11 +92,10 @@ function displayTable() {
 	connection.query("SELECT * FROM products",function(err, res){
 		if (err) throw err;
 		dataResult = res;
-		res.forEach(function(row){//passing argument 'row' simplifies array
+		res.forEach(function(row){//passing argument 'row' simplifies
 			console.log(row.id + " | " + row.product_name + " | " + row.price + " | " + row.stock_quantity + " | " + row.department_name);
     })
-		//console.log(res);
 	});
 }
 
-//function stockUpdate(){}
+//function startStop(){}
